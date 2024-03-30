@@ -41,3 +41,20 @@ Focus on core feature - get it working the messiest way necessary
 Show it around - can others make it work?
 Refactor, refine and fix
 Add the second core feature
+
+======================
+client folder
+index.html
+style.css
+
+server:
+server.js ==> endpoint routing
+controller.js ==> middleware
+
+database:
+schema
+
+tutor name/ time slot (19:00) / available(Y/N) / Booked Student
+Adam / 19:00 / N / Kobe
+Tommy / 20:00 / N / Kobe
+Tommy / 21:00 / Y / -
