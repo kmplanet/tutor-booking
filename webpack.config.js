@@ -40,6 +40,22 @@ module.exports = {
   stats: {
     children: true,
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, '..', 'build'),
+      publicPath: 'build',
+    },
+    historyApiFallback: true,
+    //FIXME: '/api2'
+    proxy: [
+      {
+        context: ['/api', '/api2'],
+        changeOrigin: true,
+        secure: false,
+        target: 'http://localhost:3000/',
+      },
+    ],
+  },
 };
 //   module: {
 //     rules: [

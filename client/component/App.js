@@ -14,24 +14,41 @@ import React, { Component } from 'react';
 // }
 
 const App = () => {
-  const list = ['a', 'b', 'c'];
+  const list = ['Tutor A', 'Tutor B', 'Tutor C'];
   const listMap = list.map((el, index) => {
-    return <h3>{el}</h3>;
+    return (
+      <h3>
+        {el} <button className="button"> Make a booking 📖 </button>
+      </h3>
+    );
   });
   console.log(listMap);
   return (
     <div>
+      <h2>Time slots</h2>
       {listMap}
-      <p>this is test element from, App.js</p>
+      <hr></hr>
       <Content2 />
-      <Content2 />
-      <p>hihi</p>
+      <InputField />
     </div>
   );
 };
 
 const Content2 = () => {
-  return <div>This is Content 2</div>;
+  return (
+    <div>
+      If you are a tutor and wants to share your available slots, click{'     '}
+      <button className="button"> here ! </button>
+    </div>
+  );
+};
+
+const InputField = () => {
+  return (
+    <div>
+      PLACEHOLDER <button className="button"> here ! </button>
+    </div>
+  );
 };
 
 export default App;
