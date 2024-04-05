@@ -17,11 +17,11 @@ app.use(express.static('client'));
 app.get('/', (req, res) => {
   res.sendFile(express.static(path.join(__dirname, '../build/bundle.js')));
 });
-// app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 
-app.get('/api', (req, res) => {
-  return res.status(200).send('hihihihi');
-});
+// app.get('/api', (req, res) => {
+//   return res.status(200).send('hihihihi');
+// });
 app.listen(port, () => {
   // console.log(mainPage);
   console.log(`I am listening to ${port}`);

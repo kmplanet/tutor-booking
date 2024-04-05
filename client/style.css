@@ -4,18 +4,16 @@ body {
 
 h1 {
     color:rgb(33, 32, 32);
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal; 
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 800;
+    font-style: normal;
 }
 
 div{
     color: rgb(65, 63, 63);
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal; 
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .button {
     display: inline-block;
@@ -37,4 +35,9 @@ div{
         background-color: rgb(71, 82, 196);
     }
 
+}
+
+#yes {
+    color: green;
+    font-weight: 500;
 }

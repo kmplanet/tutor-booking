@@ -14,8 +14,9 @@ myController.getAll = (req, res, next) => {
     }
 
     res.locals.all = result.rows;
-    console.log(res.locals.all);
-    next();
+    console.log('res.locals.all', res.locals.all);
+    res.json({ allData: res.locals.all });
+    // next();
   });
 };
 
