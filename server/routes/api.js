@@ -10,7 +10,6 @@ router.post(
   '/',
   (req, res, next) => {
     console.log('DATA RECEIVED BY SERVER: ', req.body);
-
     return next();
   },
   myController.addSlot,
