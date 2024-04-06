@@ -100,7 +100,10 @@ const AllSlots = () => {
           <td>-</td>
         ) : (
           <td>
-            <button className="button">Book Me</button>
+            <button className="button" onClick={togglePop}>
+              Book Me
+            </button>
+            {seen ? <BookingComponent toggle={togglePop} /> : null}
           </td>
         )}
       </tr>

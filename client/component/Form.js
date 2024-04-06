@@ -30,6 +30,7 @@ const FormComponent = () => {
         available_date: '',
         available_time: '',
       });
+      alert('Time slot submitted successfully.');
     } catch (error) {
       console.error('Error saving data:', error, 'EEEE:', e);
     }
