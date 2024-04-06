@@ -89,6 +89,13 @@ const AllSlots = () => {
         )}
         {/* </div> */}
         <td>{slot.student_name}</td>
+        {slot.booked === true ? (
+          <td>-</td>
+        ) : (
+          <td>
+            <button className="button">Book Me</button>
+          </td>
+        )}
       </tr>
     );
   });
@@ -103,7 +110,8 @@ const AllSlots = () => {
             <th scope="col">Date</th>
             <th scope="col">Time</th>
             <th scope="col">Available</th>
-            <th scope="col">Booked by student</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Book Now!</th>
           </tr>
         </thead>
         <tbody>{allSlotsData}</tbody>
