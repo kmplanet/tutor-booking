@@ -1,4 +1,4 @@
-import { Axios } from 'axios';
+import axios from 'axios';
 import React, { useState, useEffect, Component } from 'react';
 
 const BookingComponent = (props) => {
@@ -23,7 +23,7 @@ const BookingComponent = (props) => {
   const handleBooking = async (e) => {
     e.preventDefault();
     try {
-      const response = await Axios.post('/booking', bookFormData);
+      const response = await axios.post('/api/booking', bookFormData);
       console.log('Booking made successfully:', response.data);
     } catch (err) {
       console.error('error making booking', err);
@@ -33,26 +33,22 @@ const BookingComponent = (props) => {
 
   return (
     <div>
-      <h1>Confirm booking</h1>
-      <form onSubmit={handleBooking}></form>
-      <label>
-        Student name:
-        <input
-          type="text"
-          name="student_name"
-          value={bookFormData.student_name}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Confirm Booking ?
-        <button
-          type="submit"
-          name="booked"
-          value={bookFormData.booked}
-          onClick={handleSubmit}
-        ></button>
-      </label>
+      {/* <h3>Confirm booking</h3> */}
+      <form onSubmit={handleBooking}>
+        <label>
+          Student name:
+          <input
+            type="text"
+            name="student_name"
+            value={bookFormData.student_name}
+            onChange={handleChange}
+          />
+        </label>
+
+        <button type="submit" name="booked" value={bookFormData.booked}>
+          Confirm Booking
+        </button>
+      </form>
     </div>
   );
 };

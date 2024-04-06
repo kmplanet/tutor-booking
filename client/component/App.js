@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 
 import axios from 'axios';
 import FormComponent from './/Form.js';
+import BookingComponent from './/BookingForm.js';
 
 const App = () => {
   const list = ['Tutor A', 'Tutor B', 'Tutor C'];
@@ -54,6 +55,12 @@ const TutorAddSlotsArea = () => {
 const AllSlots = () => {
   const [data, setData] = useState([]);
 
+  //states for book button:
+  const [seen, setSeen] = useState(false);
+  const togglePop = () => {
+    setSeen(!seen);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -66,10 +73,10 @@ const AllSlots = () => {
 
     fetchData();
   }, []);
+  // Date and Time formatting
   const formatDate = (dateString) => {
     return dateString.slice(0, 10); // Trim the date string to display only YYYY-MM-DD
   };
-
   const formatTime = (dateString) => {
     return dateString.slice(0, 5); // Trim the date string to display only YYYY-MM-DD
   };
@@ -93,9 +100,10 @@ const AllSlots = () => {
           <td>-</td>
         ) : (
           <td>
-            <button className="button" key={slot._id}>
+            <button className="button" key={slot._id} onClick={togglePop}>
               Book Me
             </button>
+            {seen ? <BookingComponent toggle={togglePop} /> : null}
           </td>
         )}
       </tr>

@@ -7,14 +7,14 @@ myController.getAll = (req, res, next) => {
 
   console.log(query);
   db.query(query, (err, result) => {
-    console.log('🚀 ~ db.query ~ result:', result);
+    // console.log('🚀 ~ db.query ~ result:', result);
     if (err) {
       console.error('Error executing select all', err);
       return next(err);
     }
 
     res.locals.all = result.rows;
-    console.log('res.locals.all', res.locals.all);
+    // console.log('res.locals.all', res.locals.all);
     res.json({ allData: res.locals.all });
     // next();
   });
@@ -58,7 +58,7 @@ myController.booking = async (req, res, next) => {
     SET booked = true, student_name = $1
     WHERE _id = $2
   RETURNING *;`;
-    await db.query(bookSlot, [student_name, props._id]);
+    await db.query(bookSlot, [student_name, req.body._id]);
     next();
   } catch (error) {
     console.error('Error in :myController.booking', error);
