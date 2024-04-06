@@ -50,23 +50,6 @@ myController.addSlot = async (req, res, next) => {
     return next(error);
   }
 };
-<<<<<<< HEAD
-
-myController.booking = async (req, res, next) => {
-  try {
-    const { student_name, booked } = req.body;
-    const bookSlot = `UPDATE tutorslot_table 
-    SET booked = true, student_name = $1
-    WHERE _id = $2
-  RETURNING *;`;
-    await db.query(bookSlot, [student_name, req.body._id]);
-    next();
-  } catch (error) {
-    console.error('Error in :myController.booking', error);
-    return next(error);
-  }
-};
-=======
 // myController.booking = async (req, res, next) => {
 //   try {
 //   } catch (error) {
@@ -74,5 +57,4 @@ myController.booking = async (req, res, next) => {
 //     return next(error);
 //   }
 // };
->>>>>>> parent of e819e77 ( add booking button function, but not sure if work)
 module.exports = myController;

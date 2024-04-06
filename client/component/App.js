@@ -100,14 +100,7 @@ const AllSlots = () => {
           <td>-</td>
         ) : (
           <td>
-<<<<<<< HEAD
-            <button className="button" onClick={togglePop}>
-              Book Me
-            </button>
-            {seen ? <BookingComponent toggle={togglePop} /> : null}
-=======
             <button className="button">Book Me</button>
->>>>>>> parent of e819e77 ( add booking button function, but not sure if work)
           </td>
         )}
       </tr>

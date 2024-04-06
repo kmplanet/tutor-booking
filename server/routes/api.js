@@ -16,6 +16,7 @@ router.post(
     console.log('DATA RECEIVED BY SERVER: ', req.body);
     return next();
 >>>>>>> parent of e819e77 ( add booking button function, but not sure if work)
+    return next();
   },
   myController.addSlot,
   (req, res) => {
