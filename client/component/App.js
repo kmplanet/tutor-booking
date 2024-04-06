@@ -16,12 +16,12 @@ const App = () => {
   console.log(listMap);
   return (
     <div>
-      <h2>Our Tutors</h2>
-      {listMap}
-      <hr></hr>
+      {/* <h2>Our Tutors</h2> */}
+      {/* {listMap} */}
 
       {/* <InputField /> */}
       <hr></hr>
+      <br></br>
       <AllSlots />
       <hr></hr>
 
@@ -83,7 +83,7 @@ const AllSlots = () => {
 
   const allSlotsData = data.map((slot) => {
     return (
-      <tr key={slot.id}>
+      <tr key={slot._id}>
         {/* <td>{slot.id}</td> */}
         <td>{slot.tutor_name}</td>
         <td>{formatDate(slot.available_date)}</td>
@@ -100,7 +100,7 @@ const AllSlots = () => {
           <td>-</td>
         ) : (
           <td>
-            <button className="button" key={slot._id} onClick={togglePop}>
+            <button className="button" slotId={slot._id} onClick={togglePop}>
               Book Me
             </button>
             {seen ? <BookingComponent toggle={togglePop} /> : null}
@@ -111,7 +111,7 @@ const AllSlots = () => {
   });
   return (
     <div>
-      <h1>Tutor Slots</h1>
+      <h2>Tutor Slots</h2>
       <table className="table">
         <thead>
           <tr>

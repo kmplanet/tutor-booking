@@ -5,6 +5,7 @@ const BookingComponent = (props) => {
   const [bookFormData, setBookFormData] = useState({
     student_name: '',
     booked: false,
+    // _id: props.slotId,
   });
 
   const handleChange = (e) => {
@@ -12,6 +13,7 @@ const BookingComponent = (props) => {
     setBookFormData({
       ...bookFormData,
       [name]: value,
+      //   _id: props.slotId,
     });
   };
   const handleSubmit = () => {
