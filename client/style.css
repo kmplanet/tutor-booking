@@ -1,19 +1,23 @@
 body {
-    background-color: pink;
+    background-color: #59D5E0;
+    padding: 1em 1em 1em 1em
 }
 
 h1 {
-    color:rgb(33, 32, 32);
+    color:#F7EEDD;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 800;
     font-style: normal;
+    margin:0em 0em 0.5em 0em
+
 }
 
 div{
-    color: rgb(65, 63, 63);
+    color: #008DDA;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 400;
     font-style: normal;
+    
 }
 .button {
     display: inline-block;
@@ -28,16 +32,56 @@ div{
     min-width: 96px;
     min-height: 38px;
     border: none;
-    color: #fff;
-    background-color: rgb(88, 101, 242);
+    color: #008DDA;
+    background-color: #FFF455;
+    /* background-color: rgb(88, 101, 242); */
     transition: background-color .17s ease,color .17s ease;
     :hover {
         background-color: rgb(71, 82, 196);
     }
+    margin: 0.5em
 
 }
 
-#yes {
-    color: green;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+table {
+  background: #F7EEDD;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #008DDA;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #41C9E2;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+.no {
+  color: #ACE2E1;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  /* background: #be20c6; */
+  background: #DAFFFB;
+}
+#yes{
     font-weight: 500;
+    color: 008DDA;
 }

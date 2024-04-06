@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 
 import axios from 'axios';
+import FormComponent from './/Form.js';
 
 const App = () => {
   const list = ['Tutor A', 'Tutor B', 'Tutor C'];
@@ -14,34 +15,43 @@ const App = () => {
   console.log(listMap);
   return (
     <div>
-      <h2>Time slots</h2>
+      <h2>Our Tutors</h2>
       {listMap}
       <hr></hr>
-      <Content2 />
-      <InputField />
+
+      {/* <InputField /> */}
       <hr></hr>
-      <MyComponent />
+      <AllSlots />
+      <hr></hr>
+
+      <TutorAddSlotsArea />
+      <FormComponent />
     </div>
   );
 };
 
-const Content2 = () => {
+const TutorAddSlotsArea = () => {
   return (
     <div>
-      If you are a tutor and wants to share your available slots, click{'     '}
-      <button className="button"> here ! </button>
+      <br></br>
+      <b>If you are a tutor and wants to share your available slots, click: </b>
+      {/* <button className="button" id="tutorAddSlot">
+        {' '}
+        here !{' '}
+      </button> */}
     </div>
   );
 };
 
-const InputField = () => {
-  return (
-    <div>
-      PLACEHOLDER <button className="button"> here ! </button>
-    </div>
-  );
-};
-const MyComponent = () => {
+// const InputField = () => {
+//   return (
+//     <div>
+//       PLACEHOLDER <button className="button"> here ! </button>
+//     </div>
+//   );
+// };
+
+const AllSlots = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -64,27 +74,40 @@ const MyComponent = () => {
     return dateString.slice(0, 5); // Trim the date string to display only YYYY-MM-DD
   };
 
+  const allSlotsData = data.map((slot) => {
+    return (
+      <tr key={slot.id}>
+        {/* <td>{slot.id}</td> */}
+        <td>{slot.tutor_name}</td>
+        <td>{formatDate(slot.available_date)}</td>
+        <td>{formatTime(slot.available_time)}</td>
+        {/* <div> */}
+        {slot.booked === true ? (
+          <td className="no">No</td>
+        ) : (
+          <td id="yes">Yes</td>
+        )}
+        {/* </div> */}
+        <td>{slot.student_name}</td>
+      </tr>
+    );
+  });
   return (
     <div>
       <h1>Tutor Slots</h1>
-      <ul>
-        {data.map((slot) => (
-          <li key={slot.id}>
-            <p>Tutor Name: {slot.tutor_name}</p>
-            <p>Date: {formatDate(slot.available_date)}</p>
-            <p>Date: {formatTime(slot.available_time)}</p>
-            <p>
-              Available? :{' '}
-              {slot.booked === true ? (
-                <span id="no">No</span>
-              ) : (
-                <span id="yes">Yes</span>
-              )}
-            </p>
-            <p>Student Name: {slot.student_name}</p>
-          </li>
-        ))}
-      </ul>
+      <table className="table">
+        <thead>
+          <tr>
+            {/* <th scope="col">ID</th> */}
+            <th scope="col">Tutor</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Available</th>
+            <th scope="col">Booked by student</th>
+          </tr>
+        </thead>
+        <tbody>{allSlotsData}</tbody>
+      </table>
     </div>
   );
 };

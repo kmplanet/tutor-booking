@@ -49,7 +49,7 @@ module.exports = {
     //FIXME: '/api2'
     proxy: [
       {
-        context: ['/api', '/api2'],
+        context: ['/api'],
         changeOrigin: true,
         secure: false,
         target: 'http://localhost:3000/',
