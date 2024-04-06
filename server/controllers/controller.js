@@ -44,17 +44,25 @@ myController.addSlot = async (req, res, next) => {
     // insert to table
 
     await db.query(tutorAddSlot, [tutor_name, available_date, available_time]);
-    next();
+    // next();
   } catch (error) {
     console.error('Error in :myController.addSlot', error);
     return next(error);
   }
 };
-// myController.booking = async (req, res, next) => {
-//   try {
-//   } catch (error) {
-//     console.error('Error in :myController.booking', error);
-//     return next(error);
-//   }
-// };
+
+myController.booking = async (req, res, next) => {
+  try {
+    const { student_name, booked } = req.body;
+    const bookSlot = `UPDATE tutorslot_table 
+    SET booked = true, student_name = $1
+    WHERE _id = $2
+  RETURNING *;`;
+    await db.query(bookSlot, [student_name, props._id]);
+    next();
+  } catch (error) {
+    console.error('Error in :myController.booking', error);
+    return next(error);
+  }
+};
 module.exports = myController;

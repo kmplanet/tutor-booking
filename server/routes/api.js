@@ -10,9 +10,22 @@ router.post(
   '/',
   (req, res, next) => {
     console.log('DATA RECEIVED BY SERVER: ', req.body);
-    return next();
+    // return next();
   },
   myController.addSlot,
+  (req, res) => {
+    console.log('API ROUTER:', res.locals);
+    res.status(200).json(req.body);
+  }
+);
+
+router.post(
+  '/booking',
+  (req, res, next) => {
+    console.log('BOOKING DATA RECEIVED BY SERVER: ', req.body);
+    return next();
+  },
+  myController.booking,
   (req, res) => {
     console.log('API ROUTER:', res.locals);
     res.status(200).json(req.body);

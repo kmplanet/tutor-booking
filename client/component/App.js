@@ -93,7 +93,9 @@ const AllSlots = () => {
           <td>-</td>
         ) : (
           <td>
-            <button className="button">Book Me</button>
+            <button className="button" key={slot._id}>
+              Book Me
+            </button>
           </td>
         )}
       </tr>
