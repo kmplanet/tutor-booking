@@ -83,7 +83,7 @@ const AllSlots = () => {
 
   const allSlotsData = data.map((slot) => {
     return (
-      <tr key={slot._id}>
+      <tr>
         {/* <td>{slot.id}</td> */}
         <td>{slot.tutor_name}</td>
         <td>{formatDate(slot.available_date)}</td>
@@ -100,7 +100,7 @@ const AllSlots = () => {
           <td>-</td>
         ) : (
           <td>
-            <button className="button" slotId={slot._id} onClick={togglePop}>
+            <button className="button" onClick={togglePop}>
               Book Me
             </button>
             {seen ? <BookingComponent toggle={togglePop} /> : null}
