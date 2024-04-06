@@ -44,12 +44,13 @@ myController.addSlot = async (req, res, next) => {
     // insert to table
 
     await db.query(tutorAddSlot, [tutor_name, available_date, available_time]);
-    // next();
+    next();
   } catch (error) {
     console.error('Error in :myController.addSlot', error);
     return next(error);
   }
 };
+<<<<<<< HEAD
 
 myController.booking = async (req, res, next) => {
   try {
@@ -65,4 +66,13 @@ myController.booking = async (req, res, next) => {
     return next(error);
   }
 };
+=======
+// myController.booking = async (req, res, next) => {
+//   try {
+//   } catch (error) {
+//     console.error('Error in :myController.booking', error);
+//     return next(error);
+//   }
+// };
+>>>>>>> parent of e819e77 ( add booking button function, but not sure if work)
 module.exports = myController;
