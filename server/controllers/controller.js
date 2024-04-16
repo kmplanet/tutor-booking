@@ -53,12 +53,13 @@ myController.addSlot = async (req, res, next) => {
 
 myController.booking = async (req, res, next) => {
   try {
-    const { student_name, booked } = req.body;
+    const { student_name, booked, _id } = req.body;
     const bookSlot = `UPDATE tutorslot_table 
     SET booked = true, student_name = $1
     WHERE _id = $2
   RETURNING *;`;
-    await db.query(bookSlot, [student_name, req.body._id]);
+    await db.query(bookSlot, [student_name, _id]);
+    console.log(db.query);
     next();
   } catch (error) {
     console.error('Error in :myController.booking', error);

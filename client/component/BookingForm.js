@@ -5,6 +5,7 @@ const BookingComponent = (props) => {
   const [bookFormData, setBookFormData] = useState({
     student_name: '',
     booked: false,
+    _id: props.slotId,
   });
 
   const handleChange = (e) => {
@@ -12,6 +13,7 @@ const BookingComponent = (props) => {
     setBookFormData({
       ...bookFormData,
       [name]: value,
+      booked: true,
     });
   };
   const handleSubmit = () => {
@@ -21,6 +23,9 @@ const BookingComponent = (props) => {
     });
   };
   const handleBooking = async (e) => {
+    console.log('e', e);
+    console.log('bookFormData', bookFormData);
+
     e.preventDefault();
     try {
       const response = await axios.post('/api/booking', bookFormData);
@@ -29,6 +34,10 @@ const BookingComponent = (props) => {
       console.error('error making booking', err);
     }
     props.toggle();
+    handleSubmit();
+
+    console.log('e', e);
+    console.log('bookFormData', bookFormData);
   };
 
   return (
@@ -45,7 +54,12 @@ const BookingComponent = (props) => {
           />
         </label>
 
-        <button type="submit" name="booked" value={bookFormData.booked}>
+        <button
+          type="submit"
+          name="booked"
+          value={bookFormData.booked}
+          key={props.key}
+        >
           Confirm Booking
         </button>
       </form>
