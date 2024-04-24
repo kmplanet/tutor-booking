@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState, useEffect, Component } from 'react';
-import BookingComponent from './/BookingForm.js';
 
 const AllSlots = ({ fetchData, setData, data }) => {
   const [selectedSlotId, setSelectedSlotId] = useState(null);

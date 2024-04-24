@@ -1,8 +1,9 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
-const PG_URI =
-  'postgresql://postgres:Ptri14kobe@104.155.217.212:5432/tutorslot-db';
+const PG_URI = process.env.URI;
 
+//postgresql:// [username]:[pw]@[Google connection]:5432/[database name]
 const pool = new Pool({
   connectionString: PG_URI,
 });
